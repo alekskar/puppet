@@ -1,0 +1,17 @@
+{
+  "name": "puppetepam-puppet",
+  "version": "0.1.0",
+  "author": "Aliaksandr Karavai",
+  "summary": "install puppet master and client depends on fqdn",
+  "license": "Apache 2.0",
+  "source": "https://github.com/alekskar/puppet",
+  "project_page": "https://github.com/alekskar/puppet",
+  "issues_url": "https://github.com/alekskar/puppet/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    }
+  ]
+}
+
