@@ -6,14 +6,13 @@
     provider => 'rpm',
     ensure => latest,
 	source => "https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm"
-  
+
+  }
   if $is_puppetserver {
     include puppet::server
     }
 
-   else {
-     include puppet::client
-   }
-
-}
+  else {
+    include puppet::client
+  }
 }
