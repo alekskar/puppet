@@ -1,17 +1,17 @@
-***test environment was VMvare workstation***
+***test environment was VMware workstation***
 
 Centos7 has problems with start on windows host mashine
 
 all command are placed into the Vagrant file
 
-Logs from test mashine were retrived by change hostname and noop options.
+- Logs from test mashine were retrived by change hostname and noop options.
 
-There were created two custom facts ( is_puppetserver ) to define if server would be a master
+- There were created two custom facts ( is_puppetserver ) to define if server would be a master
 and (mem) wich determine JAVA options to allocate memory depends on dedicated memory to host.
 
-There is possiblity to chose version of client and server(was used parametrized class)
+- There is possiblity to chose version of client and server(was used parametrized class)
 
-Test class is used to setup server and define versions.
+- Test class is used to setup server and define versions.
 
 # This is repo for final task 
 ## Final task
