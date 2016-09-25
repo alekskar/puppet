@@ -1,3 +1,13 @@
+***test environment was VMvare workstation***
+
+Centos7 has problems with start on windows host mashine
+
+all command are placed into the Vagrant file
+
+logs from test mashine were retrived by change hostname and noop options.
+there were created two custom facts ( is_puppetserver ) to define if server would be a master
+and (mem) wich determine java options to allocate memory depends on dedicated memory to host  
+
 # This is repo for final task 
 ## Final task
 Provide single puppet module which can setup both puppet master and puppet agent current version from repositories which provided by puppetlabs for example - you delivery plan can be following:
