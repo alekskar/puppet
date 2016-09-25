@@ -21,17 +21,8 @@ class puppet::server inherits puppet {
   }
 
   service { 'puppetserver':
-    ensure  => 'running',
-    enable  => true,
-#    require => File['/etc/sysconfig/puppetserver'],
-
+    ensure => 'running',
+    enable => true,
   }
-
-#  exec { 'update_path':
-#    command  => 'source /root/.bash_profile',
-#    require  => Package['puppetserver'],
-#    onlyif   => 'puppet -V | grep ^$',
-#  }
-
 }
 
