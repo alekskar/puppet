@@ -7,7 +7,7 @@ all command are placed into the Vagrant file
 - Logs from test mashine were retrived by change hostname and noop options.
 
 - There were created two custom facts ( is_puppetserver ) to define if server would be a master
-and (mem) wich determine JAVA options to allocate memory depends on dedicated memory to host.
+and (mem_to_allocate) wich determine JAVA options to allocate memory depends on dedicated memory to host.
 
 - There is possiblity to chose version of client and server(was used parametrized class)
 
