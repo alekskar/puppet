@@ -3,7 +3,8 @@ class puppet::server inherits puppet {
 
   $autosign_domain = $::domain
   $mem = $::mem_to_allocate
-  info ( "Puppet server at ${::hostname} with  ${puppet::puppet_server_version} has been installed" )
+  info ( "!!!!!!!!!!!!!!!!!!!JAVA  =  ${mem} !!!!!!!!!!!!!!!!!!!!!!!!!!" )
+  info ( "Puppet server at ${::hostname} with  ${puppet::puppet_server_version} will be installed" )
   package { 'puppetserver':
     ensure => $puppet::puppet_server_version,
   }
