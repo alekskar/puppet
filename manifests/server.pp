@@ -1,38 +1,37 @@
-﻿class puppet::server inherits puppet {
+# this class setup puppet server
+class puppet::server inherits puppet {
 
+  $autosign_domain = $::domain
+  $mem = $::mem_to_allocate
+  info ( "Puppet server at ${::hostname} with  ${puppet::puppet_server_version} has been installed" )
   package { 'puppetserver':
-    ensure => $puppet::puppet_version
-    notify { "Puppet server at $hostname has been installed": }
+    ensure => $puppet::puppet_server_version,
   }
-  $signdomain = $facts['networking']['domain']
-  $autosign_domain = $domain
+  file { '/etc/sysconfig/puppetserver':
+    ensure  => file,
+    content => template('/root/puppet/templates/puppetserver.erb'),
+    require => Package['puppetserver'],
+  }
   file { '/etc/puppetlabs/puppet/autosign.conf':
-      ensure  => file,
-      content => template('/etc/puppetlabs/code/modules/exit/templates/autosign.conf.erb'),
-	  require => Package['puppetserver'],
-	  notify  => Service['puppetserver'], 
+    ensure  => file,
+    content => template('/media/puppet/templates/autosign.conf.erb'),
+    require => File['/etc/sysconfig/puppetserver'],
+    notify  => Service['puppetserver'],
   }
-  
+
   service { 'puppetserver':
     ensure  => 'running',
-	enable  => true,
-	require => Package['puppetserver'],
- 
-  
+    enable  => true,
+    require => File['/etc/sysconfig/puppetserver'],
+
   }
-  
+
   exec { 'update_path':
     command  => 'source /root/.bash_profile',
     provider => shell,
+    require  => Package['puppetserver'],
+    onlyif   => 'puppet -V | grep ^$',
   }
-  
-}
-  
-  
- 
 
-#if $facts['os']['family'] == 'redhat' {
-#  # ...
-#}
 }
 
