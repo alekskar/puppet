@@ -1,0 +1,239 @@
+puppet apply puppet/tests/init.pp --modulepath=/root -d --noop | tee puppet_server.noop.log
+Info: Loading facts in /root/puppet/lib/facter/is_puppetserver.rb
+Info: Loading facts in /root/puppet/lib/facter/mem.rb
+Debug: importing '/root/puppet/manifests/init.pp' in environment production
+Debug: Automatically imported puppet from puppet into production
+Notice: Scope(Class[Puppet]): !!!!!!!!!!!!!!!!!!!!!!!!!Puppet server? -  true !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Debug: importing '/root/puppet/manifests/repo.pp' in environment production
+Debug: Automatically imported puppet::repo from puppet/repo into production
+Debug: Executing '/usr/bin/rpm --version'
+Debug: Executing '/usr/bin/rpm -ql rpm'
+Debug: Executing '/usr/bin/rpm --version'
+Debug: importing '/root/puppet/manifests/server.pp' in environment production
+Debug: Automatically imported puppet::server from puppet/server into production
+Info: Scope(Class[Puppet::Server]): !!!!!!!!!!!!!!!!!!!JAVA  =  2g !!!!!!!!!!!!!!!!!!!!!!!!!!
+Info: Scope(Class[Puppet::Server]): Puppet server at puppet with  2.6.0-1.el7 will be installed
+Debug: Scope(Class[Puppet::Server]): Retrieving template /root/puppet/templates/puppetserver.erb
+Debug: template[/root/puppet/templates/puppetserver.erb]: Bound template variables for /root/puppet/templates/puppetserver.erb in 0.00 seconds
+Debug: template[/root/puppet/templates/puppetserver.erb]: Interpolated template /root/puppet/templates/puppetserver.erb in 0.00 seconds
+Debug: Scope(Class[Puppet::Server]): Retrieving template /root/puppet/templates/autosign.conf.erb
+Debug: template[/root/puppet/templates/autosign.conf.erb]: Bound template variables for /root/puppet/templates/autosign.conf.erb in 0.00 seconds
+Debug: template[/root/puppet/templates/autosign.conf.erb]: Interpolated template /root/puppet/templates/autosign.conf.erb in 0.00 seconds
+Debug: Adding relationship from Class[Puppet::Repo] to Class[Puppet::Server] with 'before'
+Notice: Compiled catalog for puppet.localdomain in environment production in 1.31 seconds
+Debug: Puppet::Type::Package::ProviderAix: file /usr/bin/lslpp does not exist
+Debug: Puppet::Type::Package::ProviderDpkg: file /usr/bin/dpkg does not exist
+Debug: Puppet::Type::Package::ProviderApt: file /usr/bin/apt-get does not exist
+Debug: Puppet::Type::Package::ProviderAptitude: file /usr/bin/aptitude does not exist
+Debug: Puppet::Type::Package::ProviderAptrpm: file apt-get does not exist
+Debug: Puppet::Type::Package::ProviderSun: file /usr/bin/pkginfo does not exist
+Debug: Puppet::Type::Package::ProviderFink: file /sw/bin/fink does not exist
+Debug: Puppet::Type::Package::ProviderOpenbsd: file pkg_info does not exist
+Debug: Puppet::Type::Package::ProviderFreebsd: file /usr/sbin/pkg_info does not exist
+Debug: Puppet::Type::Package::ProviderHpux: file /usr/sbin/swinstall does not exist
+Debug: Puppet::Type::Package::ProviderNim: file /usr/sbin/nimclient does not exist
+Debug: Puppet::Type::Package::ProviderOpkg: file opkg does not exist
+Debug: Puppet::Type::Package::ProviderPacman: file /usr/bin/pacman does not exist
+Debug: Puppet::Type::Package::ProviderPkg: file /usr/bin/pkg does not exist
+Debug: Puppet::Type::Package::ProviderPkgin: file pkgin does not exist
+Debug: Puppet::Type::Package::ProviderPortage: file /usr/bin/emerge does not exist
+Debug: Puppet::Type::Package::ProviderPorts: file /usr/local/sbin/portupgrade does not exist
+Debug: Puppet::Type::Package::ProviderPortupgrade: file /usr/local/sbin/portupgrade does not exist
+Debug: Puppet::Type::Package::ProviderRug: file /usr/bin/rug does not exist
+Debug: Puppet::Type::Package::ProviderSunfreeware: file pkg-get does not exist
+Debug: Puppet::Type::Package::ProviderUp2date: file /usr/sbin/up2date-nox does not exist
+Debug: Puppet::Type::Package::ProviderUrpmi: file urpmi does not exist
+Debug: Puppet::Type::Package::ProviderZypper: file /usr/bin/zypper does not exist
+Warning: The package type's allow_virtual parameter will be changing its default value from false to true in a future release. If you do not want to allow virtual packages, please explicitly set allow_virtual to false.
+   (at /usr/share/ruby/vendor_ruby/puppet/type.rb:816:in `set_default')
+Debug: /File[/etc/sysconfig/puppetserver]/seluser: Found seluser default 'system_u' for /etc/sysconfig/puppetserver
+Debug: /File[/etc/sysconfig/puppetserver]/selrole: Found selrole default 'object_r' for /etc/sysconfig/puppetserver
+Debug: /File[/etc/sysconfig/puppetserver]/seltype: Found seltype default 'etc_t' for /etc/sysconfig/puppetserver
+Debug: /File[/etc/sysconfig/puppetserver]/selrange: Found selrange default 's0' for /etc/sysconfig/puppetserver
+Debug: /File[/etc/puppetlabs/puppet/autosign.conf]/seluser: Found seluser default 'system_u' for /etc/puppetlabs/puppet/autosign.conf
+Debug: /File[/etc/puppetlabs/puppet/autosign.conf]/selrole: Found selrole default 'object_r' for /etc/puppetlabs/puppet/autosign.conf
+Debug: /File[/etc/puppetlabs/puppet/autosign.conf]/seltype: Found seltype default 'etc_t' for /etc/puppetlabs/puppet/autosign.conf
+Debug: /File[/etc/puppetlabs/puppet/autosign.conf]/selrange: Found selrange default 's0' for /etc/puppetlabs/puppet/autosign.conf
+Debug: Puppet::Type::Service::ProviderDaemontools: file /usr/bin/svc does not exist
+Debug: Puppet::Type::Service::ProviderDebian: file /usr/sbin/update-rc.d does not exist
+Debug: Puppet::Type::Service::ProviderGentoo: file /sbin/rc-update does not exist
+Debug: Puppet::Type::Service::ProviderLaunchd: file /bin/launchctl does not exist
+Debug: Puppet::Type::Service::ProviderOpenrc: file /bin/rc-status does not exist
+Debug: Puppet::Type::Service::ProviderRunit: file /usr/bin/sv does not exist
+Debug: Puppet::Type::Service::ProviderUpstart: 0 confines (of 2) were true
+Debug: Creating default schedules
+Debug: Using settings: adding file resource 'confdir': 'File[/etc/puppet]{:path=>"/etc/puppet", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Puppet::Type::User::ProviderDirectoryservice: file /usr/bin/dsimport does not exist
+Debug: Failed to load library 'ldap' for feature 'ldap'
+Debug: Puppet::Type::User::ProviderLdap: feature ldap is missing
+Debug: Puppet::Type::User::ProviderPw: file pw does not exist
+Debug: Puppet::Type::User::ProviderUser_role_add: file roleadd does not exist
+Debug: Puppet::Type::Group::ProviderDirectoryservice: file /usr/bin/dscl does not exist
+Debug: Failed to load library 'ldap' for feature 'ldap'
+Debug: Puppet::Type::Group::ProviderLdap: feature ldap is missing
+Debug: Puppet::Type::Group::ProviderPw: file pw does not exist
+Debug: Using settings: adding file resource 'vardir': 'File[/var/lib/puppet]{:path=>"/var/lib/puppet", :owner=>"puppet", :group=>"puppet", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'logdir': 'File[/var/log/puppet]{:path=>"/var/log/puppet", :mode=>"750", :owner=>"puppet", :group=>"puppet", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'statedir': 'File[/var/lib/puppet/state]{:path=>"/var/lib/puppet/state", :mode=>"1755", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'rundir': 'File[/var/run/puppet]{:path=>"/var/run/puppet", :mode=>"755", :owner=>"puppet", :group=>"puppet", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'libdir': 'File[/var/lib/puppet/lib]{:path=>"/var/lib/puppet/lib", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'certdir': 'File[/var/lib/puppet/ssl/certs]{:path=>"/var/lib/puppet/ssl/certs", :mode=>"755", :owner=>"puppet", :group=>"puppet", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'ssldir': 'File[/var/lib/puppet/ssl]{:path=>"/var/lib/puppet/ssl", :mode=>"771", :owner=>"puppet", :group=>"puppet", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'publickeydir': 'File[/var/lib/puppet/ssl/public_keys]{:path=>"/var/lib/puppet/ssl/public_keys", :mode=>"755", :owner=>"puppet", :group=>"puppet", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'requestdir': 'File[/var/lib/puppet/ssl/certificate_requests]{:path=>"/var/lib/puppet/ssl/certificate_requests", :mode=>"755", :owner=>"puppet", :group=>"puppet", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'privatekeydir': 'File[/var/lib/puppet/ssl/private_keys]{:path=>"/var/lib/puppet/ssl/private_keys", :mode=>"750", :owner=>"puppet", :group=>"puppet", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'privatedir': 'File[/var/lib/puppet/ssl/private]{:path=>"/var/lib/puppet/ssl/private", :mode=>"750", :owner=>"puppet", :group=>"puppet", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'statefile': 'File[/var/lib/puppet/state/state.yaml]{:path=>"/var/lib/puppet/state/state.yaml", :mode=>"660", :ensure=>:file, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'clientyamldir': 'File[/var/lib/puppet/client_yaml]{:path=>"/var/lib/puppet/client_yaml", :mode=>"750", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'client_datadir': 'File[/var/lib/puppet/client_data]{:path=>"/var/lib/puppet/client_data", :mode=>"750", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'clientbucketdir': 'File[/var/lib/puppet/clientbucket]{:path=>"/var/lib/puppet/clientbucket", :mode=>"750", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'lastrunfile': 'File[/var/lib/puppet/state/last_run_summary.yaml]{:path=>"/var/lib/puppet/state/last_run_summary.yaml", :mode=>"644", :ensure=>:file, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'lastrunreport': 'File[/var/lib/puppet/state/last_run_report.yaml]{:path=>"/var/lib/puppet/state/last_run_report.yaml", :mode=>"640", :ensure=>:file, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'graphdir': 'File[/var/lib/puppet/state/graphs]{:path=>"/var/lib/puppet/state/graphs", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: Using settings: adding file resource 'pluginfactdest': 'File[/var/lib/puppet/facts.d]{:path=>"/var/lib/puppet/facts.d", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: /File[/etc/puppet]/seluser: Found seluser default 'system_u' for /etc/puppet
+Debug: /File[/etc/puppet]/selrole: Found selrole default 'object_r' for /etc/puppet
+Debug: /File[/etc/puppet]/seltype: Found seltype default 'puppet_etc_t' for /etc/puppet
+Debug: /File[/etc/puppet]/selrange: Found selrange default 's0' for /etc/puppet
+Debug: /File[/var/lib/puppet]/seluser: Found seluser default 'system_u' for /var/lib/puppet
+Debug: /File[/var/lib/puppet]/selrole: Found selrole default 'object_r' for /var/lib/puppet
+Debug: /File[/var/lib/puppet]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet
+Debug: /File[/var/lib/puppet]/selrange: Found selrange default 's0' for /var/lib/puppet
+Debug: /File[/var/log/puppet]/seluser: Found seluser default 'system_u' for /var/log/puppet
+Debug: /File[/var/log/puppet]/selrole: Found selrole default 'object_r' for /var/log/puppet
+Debug: /File[/var/log/puppet]/seltype: Found seltype default 'puppet_log_t' for /var/log/puppet
+Debug: /File[/var/log/puppet]/selrange: Found selrange default 's0' for /var/log/puppet
+Debug: /File[/var/lib/puppet/state]/seluser: Found seluser default 'system_u' for /var/lib/puppet/state
+Debug: /File[/var/lib/puppet/state]/selrole: Found selrole default 'object_r' for /var/lib/puppet/state
+Debug: /File[/var/lib/puppet/state]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/state
+Debug: /File[/var/lib/puppet/state]/selrange: Found selrange default 's0' for /var/lib/puppet/state
+Debug: /File[/var/run/puppet]/seluser: Found seluser default 'system_u' for /var/run/puppet
+Debug: /File[/var/run/puppet]/selrole: Found selrole default 'object_r' for /var/run/puppet
+Debug: /File[/var/run/puppet]/seltype: Found seltype default 'puppet_var_run_t' for /var/run/puppet
+Debug: /File[/var/run/puppet]/selrange: Found selrange default 's0' for /var/run/puppet
+Debug: /File[/var/lib/puppet/lib]/seluser: Found seluser default 'system_u' for /var/lib/puppet/lib
+Debug: /File[/var/lib/puppet/lib]/selrole: Found selrole default 'object_r' for /var/lib/puppet/lib
+Debug: /File[/var/lib/puppet/lib]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/lib
+Debug: /File[/var/lib/puppet/lib]/selrange: Found selrange default 's0' for /var/lib/puppet/lib
+Debug: /File[/var/lib/puppet/ssl/certs]/seluser: Found seluser default 'system_u' for /var/lib/puppet/ssl/certs
+Debug: /File[/var/lib/puppet/ssl/certs]/selrole: Found selrole default 'object_r' for /var/lib/puppet/ssl/certs
+Debug: /File[/var/lib/puppet/ssl/certs]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/ssl/certs
+Debug: /File[/var/lib/puppet/ssl/certs]/selrange: Found selrange default 's0' for /var/lib/puppet/ssl/certs
+Debug: /File[/var/lib/puppet/ssl]/seluser: Found seluser default 'system_u' for /var/lib/puppet/ssl
+Debug: /File[/var/lib/puppet/ssl]/selrole: Found selrole default 'object_r' for /var/lib/puppet/ssl
+Debug: /File[/var/lib/puppet/ssl]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/ssl
+Debug: /File[/var/lib/puppet/ssl]/selrange: Found selrange default 's0' for /var/lib/puppet/ssl
+Debug: /File[/var/lib/puppet/ssl/public_keys]/seluser: Found seluser default 'system_u' for /var/lib/puppet/ssl/public_keys
+Debug: /File[/var/lib/puppet/ssl/public_keys]/selrole: Found selrole default 'object_r' for /var/lib/puppet/ssl/public_keys
+Debug: /File[/var/lib/puppet/ssl/public_keys]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/ssl/public_keys
+Debug: /File[/var/lib/puppet/ssl/public_keys]/selrange: Found selrange default 's0' for /var/lib/puppet/ssl/public_keys
+Debug: /File[/var/lib/puppet/ssl/certificate_requests]/seluser: Found seluser default 'system_u' for /var/lib/puppet/ssl/certificate_requests
+Debug: /File[/var/lib/puppet/ssl/certificate_requests]/selrole: Found selrole default 'object_r' for /var/lib/puppet/ssl/certificate_requests
+Debug: /File[/var/lib/puppet/ssl/certificate_requests]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/ssl/certificate_requests
+Debug: /File[/var/lib/puppet/ssl/certificate_requests]/selrange: Found selrange default 's0' for /var/lib/puppet/ssl/certificate_requests
+Debug: /File[/var/lib/puppet/ssl/private_keys]/seluser: Found seluser default 'system_u' for /var/lib/puppet/ssl/private_keys
+Debug: /File[/var/lib/puppet/ssl/private_keys]/selrole: Found selrole default 'object_r' for /var/lib/puppet/ssl/private_keys
+Debug: /File[/var/lib/puppet/ssl/private_keys]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/ssl/private_keys
+Debug: /File[/var/lib/puppet/ssl/private_keys]/selrange: Found selrange default 's0' for /var/lib/puppet/ssl/private_keys
+Debug: /File[/var/lib/puppet/ssl/private]/seluser: Found seluser default 'system_u' for /var/lib/puppet/ssl/private
+Debug: /File[/var/lib/puppet/ssl/private]/selrole: Found selrole default 'object_r' for /var/lib/puppet/ssl/private
+Debug: /File[/var/lib/puppet/ssl/private]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/ssl/private
+Debug: /File[/var/lib/puppet/ssl/private]/selrange: Found selrange default 's0' for /var/lib/puppet/ssl/private
+Debug: /File[/var/lib/puppet/state/state.yaml]/seluser: Found seluser default 'system_u' for /var/lib/puppet/state/state.yaml
+Debug: /File[/var/lib/puppet/state/state.yaml]/selrole: Found selrole default 'object_r' for /var/lib/puppet/state/state.yaml
+Debug: /File[/var/lib/puppet/state/state.yaml]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/state/state.yaml
+Debug: /File[/var/lib/puppet/state/state.yaml]/selrange: Found selrange default 's0' for /var/lib/puppet/state/state.yaml
+Debug: /File[/var/lib/puppet/client_yaml]/seluser: Found seluser default 'system_u' for /var/lib/puppet/client_yaml
+Debug: /File[/var/lib/puppet/client_yaml]/selrole: Found selrole default 'object_r' for /var/lib/puppet/client_yaml
+Debug: /File[/var/lib/puppet/client_yaml]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/client_yaml
+Debug: /File[/var/lib/puppet/client_yaml]/selrange: Found selrange default 's0' for /var/lib/puppet/client_yaml
+Debug: /File[/var/lib/puppet/client_data]/seluser: Found seluser default 'system_u' for /var/lib/puppet/client_data
+Debug: /File[/var/lib/puppet/client_data]/selrole: Found selrole default 'object_r' for /var/lib/puppet/client_data
+Debug: /File[/var/lib/puppet/client_data]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/client_data
+Debug: /File[/var/lib/puppet/client_data]/selrange: Found selrange default 's0' for /var/lib/puppet/client_data
+Debug: /File[/var/lib/puppet/clientbucket]/seluser: Found seluser default 'system_u' for /var/lib/puppet/clientbucket
+Debug: /File[/var/lib/puppet/clientbucket]/selrole: Found selrole default 'object_r' for /var/lib/puppet/clientbucket
+Debug: /File[/var/lib/puppet/clientbucket]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/clientbucket
+Debug: /File[/var/lib/puppet/clientbucket]/selrange: Found selrange default 's0' for /var/lib/puppet/clientbucket
+Debug: /File[/var/lib/puppet/state/last_run_summary.yaml]/seluser: Found seluser default 'system_u' for /var/lib/puppet/state/last_run_summary.yaml
+Debug: /File[/var/lib/puppet/state/last_run_summary.yaml]/selrole: Found selrole default 'object_r' for /var/lib/puppet/state/last_run_summary.yaml
+Debug: /File[/var/lib/puppet/state/last_run_summary.yaml]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/state/last_run_summary.yaml
+Debug: /File[/var/lib/puppet/state/last_run_summary.yaml]/selrange: Found selrange default 's0' for /var/lib/puppet/state/last_run_summary.yaml
+Debug: /File[/var/lib/puppet/state/last_run_report.yaml]/seluser: Found seluser default 'system_u' for /var/lib/puppet/state/last_run_report.yaml
+Debug: /File[/var/lib/puppet/state/last_run_report.yaml]/selrole: Found selrole default 'object_r' for /var/lib/puppet/state/last_run_report.yaml
+Debug: /File[/var/lib/puppet/state/last_run_report.yaml]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/state/last_run_report.yaml
+Debug: /File[/var/lib/puppet/state/last_run_report.yaml]/selrange: Found selrange default 's0' for /var/lib/puppet/state/last_run_report.yaml
+Debug: /File[/var/lib/puppet/state/graphs]/seluser: Found seluser default 'system_u' for /var/lib/puppet/state/graphs
+Debug: /File[/var/lib/puppet/state/graphs]/selrole: Found selrole default 'object_r' for /var/lib/puppet/state/graphs
+Debug: /File[/var/lib/puppet/state/graphs]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/state/graphs
+Debug: /File[/var/lib/puppet/state/graphs]/selrange: Found selrange default 's0' for /var/lib/puppet/state/graphs
+Debug: /File[/var/lib/puppet/facts.d]/seluser: Found seluser default 'system_u' for /var/lib/puppet/facts.d
+Debug: /File[/var/lib/puppet/facts.d]/selrole: Found selrole default 'object_r' for /var/lib/puppet/facts.d
+Debug: /File[/var/lib/puppet/facts.d]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/facts.d
+Debug: /File[/var/lib/puppet/facts.d]/selrange: Found selrange default 's0' for /var/lib/puppet/facts.d
+Debug: /File[/var/lib/puppet/state]: Autorequiring File[/var/lib/puppet]
+Debug: /File[/var/lib/puppet/lib]: Autorequiring File[/var/lib/puppet]
+Debug: /File[/var/lib/puppet/ssl/certs]: Autorequiring File[/var/lib/puppet/ssl]
+Debug: /File[/var/lib/puppet/ssl]: Autorequiring File[/var/lib/puppet]
+Debug: /File[/var/lib/puppet/ssl/public_keys]: Autorequiring File[/var/lib/puppet/ssl]
+Debug: /File[/var/lib/puppet/ssl/certificate_requests]: Autorequiring File[/var/lib/puppet/ssl]
+Debug: /File[/var/lib/puppet/ssl/private_keys]: Autorequiring File[/var/lib/puppet/ssl]
+Debug: /File[/var/lib/puppet/ssl/private]: Autorequiring File[/var/lib/puppet/ssl]
+Debug: /File[/var/lib/puppet/state/state.yaml]: Autorequiring File[/var/lib/puppet/state]
+Debug: /File[/var/lib/puppet/client_yaml]: Autorequiring File[/var/lib/puppet]
+Debug: /File[/var/lib/puppet/client_data]: Autorequiring File[/var/lib/puppet]
+Debug: /File[/var/lib/puppet/clientbucket]: Autorequiring File[/var/lib/puppet]
+Debug: /File[/var/lib/puppet/state/last_run_summary.yaml]: Autorequiring File[/var/lib/puppet/state]
+Debug: /File[/var/lib/puppet/state/last_run_report.yaml]: Autorequiring File[/var/lib/puppet/state]
+Debug: /File[/var/lib/puppet/state/graphs]: Autorequiring File[/var/lib/puppet/state]
+Debug: /File[/var/lib/puppet/facts.d]: Autorequiring File[/var/lib/puppet]
+Debug: /File[/var/lib/puppet/state/last_run_report.yaml]/seluser: seluser changed 'unconfined_u' to 'system_u'
+Debug: /File[/var/lib/puppet/state/state.yaml]/seluser: seluser changed 'unconfined_u' to 'system_u'
+Debug: /File[/var/lib/puppet/state/last_run_summary.yaml]/seluser: seluser changed 'unconfined_u' to 'system_u'
+Debug: Finishing transaction 28014300
+Debug: Loaded state in 0.01 seconds
+Debug: Loaded state in 0.01 seconds
+Debug: /Stage[main]/Puppet::Repo/before: requires Class[Puppet::Server]
+Debug: /Stage[main]/Puppet::Server/File[/etc/sysconfig/puppetserver]/require: requires Package[puppetserver]
+Debug: /Stage[main]/Puppet::Server/File[/etc/puppetlabs/puppet/autosign.conf]/require: requires File[/etc/sysconfig/puppetserver]
+Debug: /Stage[main]/Puppet::Server/File[/etc/puppetlabs/puppet/autosign.conf]/notify: subscribes to Service[puppetserver]
+Info: Applying configuration version '1474851338'
+Debug: Prefetching rpm resources for package
+Debug: Executing '/usr/bin/rpm --version'
+Debug: Executing '/usr/bin/rpm -qa --nosignature --nodigest --qf '%{NAME} %|EPOCH?{%{EPOCH}}:{0}| %{VERSION} %{RELEASE} %{ARCH}\n''
+Debug: Executing '/usr/bin/rpm -q puppetlabs-release-pc1-el-7.noarch.rpm --nosignature --nodigest --qf %{NAME} %|EPOCH?{%{EPOCH}}:{0}| %{VERSION} %{RELEASE} %{ARCH}\n'
+Notice: /Stage[main]/Puppet::Repo/Package[puppetlabs-release-pc1-el-7.noarch.rpm]/ensure: current_value absent, should be present (noop)
+Debug: /Stage[main]/Puppet::Repo/Package[puppetlabs-release-pc1-el-7.noarch.rpm]: The container Class[Puppet::Repo] will propagate my refresh event
+Notice: Class[Puppet::Repo]: Would have triggered 'refresh' from 1 events
+Debug: Class[Puppet::Repo]: The container Stage[main] will propagate my refresh event
+Debug: Prefetching yum resources for package
+Debug: Executing '/usr/bin/rpm --version'
+Debug: Executing '/usr/bin/rpm -qa --nosignature --nodigest --qf '%{NAME} %|EPOCH?{%{EPOCH}}:{0}| %{VERSION} %{RELEASE} %{ARCH}\n''
+Debug: Executing '/usr/bin/rpm -q puppetserver --nosignature --nodigest --qf %{NAME} %|EPOCH?{%{EPOCH}}:{0}| %{VERSION} %{RELEASE} %{ARCH}\n'
+Notice: /Stage[main]/Puppet::Server/Package[puppetserver]/ensure: current_value absent, should be 2.6.0-1.el7 (noop)
+Debug: /Stage[main]/Puppet::Server/Package[puppetserver]: The container Class[Puppet::Server] will propagate my refresh event
+Notice: /Stage[main]/Puppet::Server/File[/etc/sysconfig/puppetserver]/ensure: current_value absent, should be file (noop)
+Debug: /Stage[main]/Puppet::Server/File[/etc/sysconfig/puppetserver]: The container Class[Puppet::Server] will propagate my refresh event
+Notice: /Stage[main]/Puppet::Server/File[/etc/puppetlabs/puppet/autosign.conf]/ensure: current_value absent, should be file (noop)
+Info: /Stage[main]/Puppet::Server/File[/etc/puppetlabs/puppet/autosign.conf]: Scheduling refresh of Service[puppetserver]
+Debug: /Stage[main]/Puppet::Server/File[/etc/puppetlabs/puppet/autosign.conf]: The container Class[Puppet::Server] will propagate my refresh event
+Debug: Executing '/usr/bin/systemctl is-active puppetserver'
+Debug: Executing '/usr/bin/systemctl is-enabled puppetserver'
+Notice: /Stage[main]/Puppet::Server/Service[puppetserver]/ensure: current_value stopped, should be running (noop)
+Debug: /Stage[main]/Puppet::Server/Service[puppetserver]: The container Class[Puppet::Server] will propagate my refresh event
+Info: /Stage[main]/Puppet::Server/Service[puppetserver]: Unscheduling refresh on Service[puppetserver]
+Notice: Class[Puppet::Server]: Would have triggered 'refresh' from 4 events
+Debug: Class[Puppet::Server]: The container Stage[main] will propagate my refresh event
+Notice: Stage[main]: Would have triggered 'refresh' from 2 events
+Debug: Finishing transaction 4539140
+Debug: Storing state
+Debug: Stored state in 0.02 seconds
+Notice: Finished catalog run in 0.98 seconds
+Debug: Using settings: adding file resource 'rrddir': 'File[/var/lib/puppet/rrd]{:path=>"/var/lib/puppet/rrd", :mode=>"750", :owner=>"puppet", :group=>"puppet", :ensure=>:directory, :loglevel=>:debug, :links=>:follow, :backup=>false}'
+Debug: /File[/var/lib/puppet/rrd]/seluser: Found seluser default 'system_u' for /var/lib/puppet/rrd
+Debug: /File[/var/lib/puppet/rrd]/selrole: Found selrole default 'object_r' for /var/lib/puppet/rrd
+Debug: /File[/var/lib/puppet/rrd]/seltype: Found seltype default 'puppet_var_lib_t' for /var/lib/puppet/rrd
+Debug: /File[/var/lib/puppet/rrd]/selrange: Found selrange default 's0' for /var/lib/puppet/rrd
+Debug: Finishing transaction 16498000
+Debug: Received report to process from puppet.localdomain
+Debug: Processing report from puppet.localdomain with processor Puppet::Reports::Store
