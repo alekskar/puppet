@@ -13,6 +13,13 @@ and (mem) wich determine JAVA options to allocate memory depends on dedicated me
 
 - Test class is used to setup server and define versions.
 
+There is a value resolving problem, depends on facter version.
+```
+Facter.value(:memorysize_mb) - returns string - latest version -Float
+Facter.value(:anything) - rerurns string - Latest version Boolean
+```
+It can couse problems with script.
+
 # This is repo for final task 
 ## Final task
 Provide single puppet module which can setup both puppet master and puppet agent current version from repositories which provided by puppetlabs for example - you delivery plan can be following:
