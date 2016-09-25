@@ -23,7 +23,7 @@ class puppet::server inherits puppet {
   service { 'puppetserver':
     ensure  => 'running',
     enable  => true,
-    require => File['/etc/sysconfig/puppetserver'],
+#    require => File['/etc/sysconfig/puppetserver'],
 
   }
 
