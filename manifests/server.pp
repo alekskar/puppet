@@ -14,7 +14,7 @@ class puppet::server inherits puppet {
   }
   file { '/etc/puppetlabs/puppet/autosign.conf':
     ensure  => file,
-    content => template('/media/puppet/templates/autosign.conf.erb'),
+    content => template('/root/puppet/templates/autosign.conf.erb'),
     require => File['/etc/sysconfig/puppetserver'],
     notify  => Service['puppetserver'],
   }
