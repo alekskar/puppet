@@ -32,7 +32,7 @@ echo "192.168.100.120   puppet puppet.minsk.epam.com" >> /etc/hosts
 echo "192.168.100.121   node1 node1.minsk.epam.com" >> /etc/hosts
 yum install -y vim epel-release git
 yum install -y puppet
-git clone git@github.com:alekskar/puppet.git
+git clone https://github.com/alekskar/puppet.git
 puppet apply puppet/tests/init.pp --modulepath=/root
 SHELL
 end
