@@ -7,7 +7,7 @@ class puppet (
   $puppet_agent_version  = 'installed'
   ) {
   notice ( "!!!!!!!!!!!!!!!!!!!!!!!!!Puppet server? -  ${::is_puppetserver} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-  if $::is_puppetserver == true {
+  if $::is_puppetserver {
     class { 'puppet::repo': } ->
     class { 'puppet::server': }
     }
