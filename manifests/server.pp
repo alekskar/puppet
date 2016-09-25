@@ -27,11 +27,11 @@ class puppet::server inherits puppet {
 
   }
 
-  exec { 'update_path':
-    command  => 'source /root/.bash_profile',
-    require  => Package['puppetserver'],
+#  exec { 'update_path':
+#    command  => 'source /root/.bash_profile',
+#    require  => Package['puppetserver'],
 #    onlyif   => 'puppet -V | grep ^$',
-  }
+#  }
 
 }
 
