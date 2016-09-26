@@ -10,12 +10,12 @@ class puppet::server inherits puppet {
   }
   file { '/etc/sysconfig/puppetserver':
     ensure  => file,
-    content => template('/root/puppet/templates/puppetserver.erb'),
+    content => template('/home/vagrant/puppet/templates/puppetserver.erb'),
     require => Package['puppetserver'],
   }
   file { '/etc/puppetlabs/puppet/autosign.conf':
     ensure  => file,
-    content => template('/root/puppet/templates/autosign.conf.erb'),
+    content => template('/home/vagrant/puppet/templates/autosign.conf.erb'),
     require => File['/etc/sysconfig/puppetserver'],
     notify  => Service['puppetserver'],
   }
