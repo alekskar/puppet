@@ -33,6 +33,6 @@ echo "192.168.100.121   node1 node1.minsk.epam.com" >> /etc/hosts
 yum install -y vim epel-release git
 yum install -y puppet
 git clone -q https://github.com/alekskar/puppet.git
-puppet apply puppet/tests/init.pp --modulepath=/root
+puppet apply /home/vagrant/puppet/tests/init.pp --modulepath=/home/vagrant
 SHELL
 end
